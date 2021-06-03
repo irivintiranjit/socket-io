@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>"Socket.io Programing"</title>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket=io.connect('http://localhost:8080');
+            socket.on('acknowledged',function(message){
+              
+            })
+
+            function sendMessage(){
+                let _msg=document.getElementById('msgid').value;
+                socket.emit('send message',_msg);
+                document.getElementById('msgid').value="";
+            }
+
+            socket.on("message ack")
+        </script>
+    </head>
+    <body>
+            <div>
+                Enter Text: <input type="text" id="msgid"/></div></br>
+                <button type="button" onclick="sendMessage()" name="Send">Send</button>
+            </div>
+    </body>
+</html>
+
